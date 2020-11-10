@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_motion_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_main_scene"
+    tools:context=".ui.MainActivity">
+
+    <EditText
+        android:id="@+id/activity_main_search_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Search..."
+        android:importantForAutofill="no"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,TextFields" />
+
+    <ImageView
+        android:id="@+id/activity_main_search_edit_text_cancel"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_search_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/activity_main_search_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/activity_main_search_edit_text"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
+
+    <Space
+        android:id="@+id/activity_main_center_view_pattern"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/activity_main_loading_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintEnd_toEndOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintTop_toTopOf="@+id/activity_main_center_view_pattern">
+        <!--
+         If I put this LottieAnimationView into the MotionLayout node, his visibility will be managed directly by MotionLayout, I don't
+        want this in my code so I moved LottieAnimationView into a container
+        -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/activity_main_loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_unicorn"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/activity_main_random_container"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintEnd_toEndOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_center_view_pattern"
+        app:layout_constraintTop_toTopOf="@+id/activity_main_center_view_pattern" />
+
+    <FrameLayout
+        android:id="@+id/activity_main_search_result_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_search_edit_text" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vincentmasselis.giphyexplorer">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.vincentmasselis.giphyexplorer.GiphyExplorerApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.vincentmasselis.giphyexplorer.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vincentmasselis.giphyexplorer.ui.AnimationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="com.vincentmasselis.giphyexplorer.RootComponentInitializer"
+            android:authorities="${applicationId}.root-component-initializer"
+            android:exported="false" />
+    </application>
+
+</manifest>

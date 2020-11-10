@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/activity_main_scene_random">
+        <Constraint
+            android:id="@+id/activity_main_random_container"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintEnd_toEndOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintStart_toStartOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintTop_toTopOf="@+id/activity_main_center_view_pattern" />
+        <Constraint
+            android:id="@+id/activity_main_search_result_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_search_edit_text" />
+        <Constraint
+            android:id="@+id/activity_main_search_edit_text_cancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_cancel"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_main_search_edit_text"
+            app:layout_constraintEnd_toEndOf="@+id/activity_main_search_edit_text"
+            app:layout_constraintTop_toTopOf="@+id/activity_main_search_edit_text" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/activity_main_scene_search">
+        <Constraint
+            android:id="@id/activity_main_random_container"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintEnd_toEndOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintStart_toStartOf="@+id/activity_main_center_view_pattern"
+            app:layout_constraintTop_toTopOf="@+id/activity_main_center_view_pattern" />
+        <Constraint
+            android:id="@+id/activity_main_search_result_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_search_edit_text" />
+        <Constraint
+            android:id="@+id/activity_main_search_edit_text_cancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_cancel"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_main_search_edit_text"
+            app:layout_constraintEnd_toEndOf="@+id/activity_main_search_edit_text"
+            app:layout_constraintTop_toTopOf="@+id/activity_main_search_edit_text" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@+id/activity_main_scene_search"
+        app:constraintSetStart="@+id/activity_main_scene_random"
+        app:duration="300" />
+</MotionScene>

@@ -6,11 +6,13 @@ Full Kotlin, Full RxJava3, No database (online only), Full Dagger2, Custom "Shap
 ### Architecture
 This project uses only 3 layers of architecture, UI, "Shaper" and Endpoint. Domain classes are used transitively across every layer.
 Endpoint are used only make CRUD op for every object from the Domain, they make request and they parse the result.
-UI is... the UI nothing particulare to say here, it contains `Fragment`, `Activity`, etc.
+UI is the UI, there is nothing special to say here, it contains `Fragment`, `Activity`, etc.
 
 "Shaper" is the place where the business logic is written, they are written this way:
-* The UI request a ressource
-* The shaper ask the endpoint and returns the results to the UI
+* The UI request a ressource to the shaper
+* The shaper ask the endpoint for data
+* Apply his own business logic to the returned data
+* Returns the data updated by the business logic
 
 ### Meaning of "Shaper"
 A Shaper is a shape for a domain object, it get domain objects in his input and returns a transformed domain object.
@@ -21,4 +23,4 @@ as long you are subscribed to the Shaper. To "send" data to a Shaper, you must i
 
 By using this approach, the dataflow between the UI and a shaper is circular and unidirectionnal in this way UI -> SubComponent -> Shaper -> UI -> etc...
 
-More informations and full spetifications by contacting [@VincentMasselis](https://github.com/VincentMasselis)
+Feel free to ask me questions by creating an issue on github.
